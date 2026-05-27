@@ -12,6 +12,8 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const SITE_URL = "https://destinyobs.netlify.app";
+
 export const metadata: Metadata = {
   title: "DestinyObs · Full-Stack Software Engineer",
   description:
@@ -23,16 +25,32 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Destiny Obueh", url: "https://github.com/destinyobs" }],
   creator: "Destiny Obueh",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
+    url: SITE_URL,
     title: "DestinyObs · Full-Stack Software Engineer",
     description: "Building scalable web applications, backend systems, and cloud infrastructure.",
     siteName: "DestinyObs Portfolio",
+    images: [
+      {
+        url: `${SITE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "DestinyObs — Full-Stack Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "DestinyObs · Full-Stack Software Engineer",
     description: "Building scalable web apps, backend systems, and cloud infrastructure.",
+    images: [`${SITE_URL}/og-image.png`],
   },
   robots: { index: true, follow: true },
 };
