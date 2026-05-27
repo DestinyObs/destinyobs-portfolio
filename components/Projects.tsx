@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
 ];
 
 function BrowserModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const [inputUrl, setInputUrl] = useState(project.url);
+  const inputUrl = project.url;
   const [loading, setLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -132,8 +132,8 @@ function BrowserModal({ project, onClose }: { project: Project; onClose: () => v
             <div className="w-3.5 h-3.5 rounded-full bg-[#28C840]" />
           </div>
 
-          {/* Nav buttons */}
-          <div className="flex items-center gap-1 flex-shrink-0">
+          {/* Nav buttons — hidden on mobile to save space */}
+          <div className="hidden sm:flex items-center gap-1 flex-shrink-0">
             <button className="w-7 h-7 flex items-center justify-center rounded-lg text-[var(--color-muted-light)] hover:text-[var(--color-muted)] hover:bg-[var(--color-surface2)] transition-all duration-150">
               <ArrowLeft size={13} />
             </button>
@@ -147,11 +147,19 @@ function BrowserModal({ project, onClose }: { project: Project; onClose: () => v
               <RefreshCw size={12} className={loading ? "animate-spin" : ""} />
             </button>
           </div>
+          {/* Refresh only on mobile */}
+          <button
+            onClick={handleRefresh}
+            className="sm:hidden w-7 h-7 flex items-center justify-center rounded-lg text-[var(--color-muted-light)] hover:text-[var(--color-muted)] hover:bg-[var(--color-surface2)] transition-all duration-150 flex-shrink-0"
+          >
+            <RefreshCw size={12} className={loading ? "animate-spin" : ""} />
+          </button>
 
           {/* URL bar */}
           <div className="flex-1 min-w-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[12px] text-[var(--color-muted)] font-mono">
             <Lock size={10} className="flex-shrink-0 text-[var(--color-accent)]" />
-            <span className="truncate">{inputUrl}</span>
+            <span className="truncate sm:hidden">{hostname}</span>
+            <span className="truncate hidden sm:inline">{inputUrl}</span>
           </div>
 
           {/* Open in tab */}

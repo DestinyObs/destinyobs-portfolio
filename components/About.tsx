@@ -83,7 +83,7 @@ export default function About() {
                 </span>
               </div>
               <div
-                className="p-5 font-mono text-[12.5px] leading-[1.9]"
+                className="p-5 font-mono text-[12.5px] leading-[1.9] overflow-x-auto"
                 style={{ backgroundColor: "#131610", color: "#E4E4D8" }}
               >
                 <div>

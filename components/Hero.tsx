@@ -75,7 +75,7 @@ export default function Hero() {
         <motion.h1
           {...fade(0.1)}
           className="font-display font-light tracking-[-0.025em] text-[var(--color-text)] leading-[0.92] mb-4"
-          style={{ fontSize: "clamp(4.5rem, 14vw, 9.5rem)" }}
+          style={{ fontSize: "clamp(2.75rem, 13vw, 9rem)" }}
         >
           Destiny<span className="italic text-[var(--color-accent)]">Obs</span>
         </motion.h1>
@@ -110,17 +110,23 @@ export default function Hero() {
           {...fade(0.34)}
           className="grid grid-cols-2 sm:grid-cols-4 gap-0 w-full max-w-2xl mb-10 border border-[var(--color-border)] rounded-2xl overflow-hidden bg-[var(--color-white)]"
         >
-          {STATS.map(({ value, label }, i) => (
+          {STATS.map(({ value, label }, i) => {
+            const borderClass =
+              i === 0 ? "border-r border-b sm:border-b-0 border-[var(--color-border)]" :
+              i === 1 ? "border-b sm:border-b-0 sm:border-r border-[var(--color-border)]" :
+              i === 2 ? "border-r border-[var(--color-border)]" : "";
+            return (
             <div
               key={label}
-              className={`py-5 px-4 text-center ${i < STATS.length - 1 ? "border-r border-[var(--color-border)]" : ""}`}
+              className={`py-5 px-4 text-center ${borderClass}`}
             >
               <p className="font-display text-2xl font-light text-[var(--color-text)] leading-none mb-1">
                 {value}
               </p>
               <p className="text-[11px] text-[var(--color-muted)] leading-tight">{label}</p>
             </div>
-          ))}
+            );
+          })}
         </motion.div>
 
         {/* CTAs */}
