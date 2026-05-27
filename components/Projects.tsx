@@ -55,13 +55,6 @@ const PROJECTS: Project[] = [
     tag: "Web App",
     color: "#3A1C1C",
   },
-  {
-    name: "Bulwark",
-    url: "https://bulwark.netlify.app/",
-    description: "A security-oriented web product with a clean, professional interface and robust functionality.",
-    tag: "Security",
-    color: "#1A2A3A",
-  },
 ];
 
 function BrowserModal({ project, onClose }: { project: Project; onClose: () => void }) {
