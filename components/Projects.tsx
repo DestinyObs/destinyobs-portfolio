@@ -116,13 +116,14 @@ function BrowserModal({ project, onClose }: { project: Project; onClose: () => v
           <div className="flex items-center gap-1.5 flex-shrink-0">
             <button
               onClick={onClose}
-              className="w-3.5 h-3.5 rounded-full bg-[#FF5F57] hover:opacity-80 transition-opacity flex items-center justify-center group"
+              className="w-4 h-4 rounded-full bg-[#FF5F57] hover:opacity-80 active:opacity-60 transition-opacity flex items-center justify-center"
               title="Close"
+              aria-label="Close preview"
             >
-              <X size={7} className="text-[#7A1A1A] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <X size={8} className="text-[#7A1A1A]" />
             </button>
-            <div className="w-3.5 h-3.5 rounded-full bg-[#FEBC2E]" />
-            <div className="w-3.5 h-3.5 rounded-full bg-[#28C840]" />
+            <div className="w-4 h-4 rounded-full bg-[#FEBC2E]" />
+            <div className="w-4 h-4 rounded-full bg-[#28C840]" />
           </div>
 
           {/* Nav buttons — hidden on mobile to save space */}
@@ -195,22 +196,30 @@ function BrowserModal({ project, onClose }: { project: Project; onClose: () => v
 
         {/* Bottom info bar */}
         <div
-          className="flex items-center justify-between px-4 py-2.5 border-t border-[var(--color-border)] flex-shrink-0"
+          className="flex items-center justify-between px-4 py-2.5 border-t border-[var(--color-border)] flex-shrink-0 gap-3"
           style={{ backgroundColor: "var(--color-surface)" }}
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-w-0">
             <span
-              className="w-2 h-2 rounded-full"
+              className="w-2 h-2 rounded-full flex-shrink-0"
               style={{ backgroundColor: project.color }}
             />
-            <span className="text-xs font-semibold text-[var(--color-text)]">{project.name}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full border border-[var(--color-border)] text-[var(--color-muted)]">
+            <span className="text-xs font-semibold text-[var(--color-text)] truncate">{project.name}</span>
+            <span className="text-[10px] px-2 py-0.5 rounded-full border border-[var(--color-border)] text-[var(--color-muted)] flex-shrink-0 hidden xs:inline-flex">
               {project.tag}
             </span>
           </div>
-          <p className="text-[11px] text-[var(--color-muted)] hidden sm:block max-w-sm truncate">
+          <p className="text-[11px] text-[var(--color-muted)] hidden sm:block max-w-sm truncate flex-1">
             {project.description}
           </p>
+          {/* Mobile close button — always visible on small screens */}
+          <button
+            onClick={onClose}
+            className="sm:hidden flex-shrink-0 flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-[var(--color-accent)] text-white text-xs font-semibold active:opacity-80 transition-opacity"
+          >
+            <X size={11} />
+            Close
+          </button>
         </div>
       </motion.div>
     </motion.div>

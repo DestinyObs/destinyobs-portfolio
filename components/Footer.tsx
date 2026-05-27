@@ -5,7 +5,7 @@ import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon } from "./SocialI
 
 const SOCIALS = [
   { Icon: GithubIcon, href: "https://github.com/destinyobs", label: "GitHub" },
-  { Icon: LinkedinIcon, href: "https://linkedin.com/in/destiny-obueh", label: "LinkedIn" },
+  { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/destinyobs/", label: "LinkedIn" },
   { Icon: InstagramIcon, href: "https://instagram.com/Destinyobueh", label: "Instagram" },
   { Icon: WhatsappIcon, href: "https://wa.me/2349042401678", label: "WhatsApp" },
   { Icon: ({ size }: { size?: number }) => <Mail size={size ?? 14} />, href: "mailto:destinyobueh@gmail.com", label: "Email" },

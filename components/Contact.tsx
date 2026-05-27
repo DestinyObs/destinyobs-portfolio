@@ -30,7 +30,7 @@ const CONTACTS: ContactItem[] = [
   {
     Icon: LinkedinIcon,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/destiny-obueh",
+    href: "https://www.linkedin.com/in/destinyobs/",
     handle: "destiny-obueh",
   },
   {
